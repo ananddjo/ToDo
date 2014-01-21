@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ToDoCell.h
 //  ToDo
 //
 //  Created by Anand Joshi on 1/20/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ToDoCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UITextField *todoTxt;
 @end
