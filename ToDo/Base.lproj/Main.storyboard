@@ -20,13 +20,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="69R-DK-HR9">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="69R-DK-HR9">
                                             <rect key="frame" x="15" y="6" width="286" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="286" id="C3b-CH-7uY"/>
-                                                <constraint firstAttribute="height" constant="30" id="xl6-ha-GAg"/>
-                                            </constraints>
                                             <attributedString key="attributedText"/>
                                             <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
@@ -35,12 +31,10 @@
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="top" secondItem="FTy-wC-fLp" secondAttribute="top" constant="5" id="7hU-NV-nor"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="69R-DK-HR9" secondAttribute="trailing" constant="15" id="9LB-4D-gEt"/>
-                                        <constraint firstAttribute="trailing" secondItem="69R-DK-HR9" secondAttribute="trailing" constant="15" id="l2Y-rE-Zee"/>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FTy-wC-fLp" secondAttribute="top" constant="15" id="lVe-vc-atH"/>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="leading" secondItem="FTy-wC-fLp" secondAttribute="leading" constant="15" id="og8-gy-2cX"/>
-                                        <constraint firstAttribute="bottom" secondItem="69R-DK-HR9" secondAttribute="bottom" constant="5" id="vsc-J5-F4S"/>
+                                        <constraint firstItem="69R-DK-HR9" firstAttribute="top" secondItem="FTy-wC-fLp" secondAttribute="top" constant="6" id="KEq-fx-f1E"/>
+                                        <constraint firstAttribute="bottom" secondItem="69R-DK-HR9" secondAttribute="bottom" constant="10" id="XFr-Zt-9gE"/>
+                                        <constraint firstItem="69R-DK-HR9" firstAttribute="leading" secondItem="FTy-wC-fLp" secondAttribute="leading" constant="15" id="iLK-Zc-qFa"/>
+                                        <constraint firstAttribute="trailing" secondItem="69R-DK-HR9" secondAttribute="trailing" constant="19" id="pgc-sb-aVR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
