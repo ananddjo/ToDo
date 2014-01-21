@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ToDoCell" rowHeight="57" id="D3L-2B-ZcV" customClass="ToDoCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ToDoCell" id="D3L-2B-ZcV" customClass="ToDoCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D3L-2B-ZcV" id="FTy-wC-fLp">
@@ -26,6 +26,9 @@
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="M1S-Hv-r3A" id="v18-9J-OGw"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -60,8 +63,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addBtn" destination="dxP-cb-yUO" id="j7g-Ro-YOL"/>
-                        <outlet property="editBtn" destination="KKy-wr-8vP" id="ae7-eQ-p0O"/>
                         <outlet property="todoListView" destination="bie-eg-GVM" id="hh7-Ef-HZf"/>
                     </connections>
                 </tableViewController>
