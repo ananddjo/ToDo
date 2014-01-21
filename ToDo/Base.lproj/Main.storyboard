@@ -8,23 +8,26 @@
         <scene sceneID="Ht5-g0-E0i">
             <objects>
                 <tableViewController id="M1S-Hv-r3A" customClass="ToDoViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" id="bie-eg-GVM">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" id="bie-eg-GVM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ToDoCell" id="D3L-2B-ZcV" customClass="ToDoCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="57"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ToDoCell" rowHeight="47" id="D3L-2B-ZcV" customClass="ToDoCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="47"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D3L-2B-ZcV" id="FTy-wC-fLp">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="69R-DK-HR9">
-                                            <rect key="frame" x="15" y="6" width="286" height="46"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="69R-DK-HR9">
+                                            <rect key="frame" x="15" y="6" width="286" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="286" id="C3b-CH-7uY"/>
+                                                <constraint firstAttribute="height" constant="30" id="xl6-ha-GAg"/>
+                                            </constraints>
+                                            <attributedString key="attributedText"/>
                                             <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
                                                 <outlet property="delegate" destination="M1S-Hv-r3A" id="v18-9J-OGw"/>
@@ -32,13 +35,12 @@
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="top" secondItem="FTy-wC-fLp" secondAttribute="top" constant="5" id="JaN-O9-EIc"/>
-                                        <constraint firstAttribute="trailing" secondItem="69R-DK-HR9" secondAttribute="trailing" constant="20" id="LTT-bX-GQl"/>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="leading" relation="lessThanOrEqual" secondItem="FTy-wC-fLp" secondAttribute="leading" constant="20" id="NdV-Tc-dey"/>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FTy-wC-fLp" secondAttribute="top" constant="5" id="OAf-3s-Rjl"/>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="leading" secondItem="FTy-wC-fLp" secondAttribute="leading" constant="20" id="bJH-dR-aEN"/>
-                                        <constraint firstAttribute="bottom" secondItem="69R-DK-HR9" secondAttribute="bottom" constant="5" id="fOd-G9-bD7"/>
-                                        <constraint firstItem="69R-DK-HR9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FTy-wC-fLp" secondAttribute="leading" constant="20" id="pca-Wd-deN"/>
+                                        <constraint firstItem="69R-DK-HR9" firstAttribute="top" secondItem="FTy-wC-fLp" secondAttribute="top" constant="5" id="7hU-NV-nor"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="69R-DK-HR9" secondAttribute="trailing" constant="15" id="9LB-4D-gEt"/>
+                                        <constraint firstAttribute="trailing" secondItem="69R-DK-HR9" secondAttribute="trailing" constant="15" id="l2Y-rE-Zee"/>
+                                        <constraint firstItem="69R-DK-HR9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FTy-wC-fLp" secondAttribute="top" constant="15" id="lVe-vc-atH"/>
+                                        <constraint firstItem="69R-DK-HR9" firstAttribute="leading" secondItem="FTy-wC-fLp" secondAttribute="leading" constant="15" id="og8-gy-2cX"/>
+                                        <constraint firstAttribute="bottom" secondItem="69R-DK-HR9" secondAttribute="bottom" constant="5" id="vsc-J5-F4S"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
