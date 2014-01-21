@@ -10,6 +10,9 @@
 #import "ToDoCell.h"
 #import <objc/runtime.h>
 
+#define STOREKEY @"ToDOContents"
+#define INDEXKEY @"INDEX_PATH"
+
 @interface ToDoViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addBtn;
@@ -18,7 +21,7 @@
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
 @property (strong, nonatomic) NSMutableArray *todoList;
 
-- (void) storeTodoListToDisk;
+- (void) storeTodoList;
 
 @end
 
@@ -31,13 +34,11 @@
     
     if (self) {
         self.userDefaults = [NSUserDefaults standardUserDefaults];
-        self.todoList = [self.userDefaults objectForKey:@"ToDOContents"];
+        self.todoList = [self.userDefaults objectForKey:STOREKEY];
         if (!self.todoList) {
             self.todoList = [[NSMutableArray alloc] init];
             NSLog(@"initWithCoder: list is empty");
         }
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-        
     }
     
     return self;
@@ -47,9 +48,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        
     }
-    
     return self;
 }
 
@@ -57,7 +56,7 @@
 {
     [self.todoList insertObject:@"" atIndex:0];
     [self.tableView reloadData];
-    [self storeTodoListToDisk];
+    [self storeTodoList];
     
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell *cell = [self tableView:self.tableView cellForRowAtIndexPath:path];
@@ -105,7 +104,7 @@
         [self.todoList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView reloadData];
-        [self storeTodoListToDisk];
+        [self storeTodoList];
     }
 }
 
@@ -117,7 +116,7 @@
     
     ToDoCell *todoCell = (ToDoCell *)cell;
     todoCell.todoTxt.text = [self.todoList objectAtIndex:indexPath.row];
-    objc_setAssociatedObject(todoCell.todoTxt, "INDEX_PATH", indexPath, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(todoCell.todoTxt, INDEXKEY, indexPath, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return cell;
 }
 
@@ -137,7 +136,7 @@
     [self.todoList removeObjectAtIndex:sourceRow];
     [self.todoList insertObject:tempTodoText atIndex:destRow];
     [tableView reloadData];
-    [self storeTodoListToDisk];
+    [self storeTodoList];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -150,23 +149,23 @@
 {
     // Get the text from the text field and update the correct location
     // in the NSMutableArray data source
-    NSIndexPath *cellPath = objc_getAssociatedObject(textField, "INDEX_PATH"); // TODO: Use static variable for key
+    NSIndexPath *cellPath = objc_getAssociatedObject(textField, INDEXKEY); // TODO: Use static variable for key
     NSUInteger row = cellPath.row;
     [self.todoList setObject:textField.text atIndexedSubscript:row];
     [self.todoListView reloadData];
-    [self storeTodoListToDisk];
+    [self storeTodoList];
 }
 
 
-- (void) storeTodoListToDisk {
-    [self.userDefaults setObject:self.todoList forKey:@"ToDOContents"]; // TODO: Use static variable for key
+- (void) storeTodoList {
+    [self.userDefaults setObject:self.todoList forKey:STOREKEY]; // TODO: Use static variable for key
     [self.userDefaults synchronize];
 }
 
 - (void)onAppTerminate:(NSNotification *)notification
 {
-    NSLog(@"onAppTerminate");
-    [self storeTodoListToDisk];
+    NSLog(@"onAppTerminate: Terminating the application");
+    [self storeTodoList];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
