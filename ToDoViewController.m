@@ -84,7 +84,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -147,9 +146,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    // Get the text from the text field and update the correct location
-    // in the NSMutableArray data source
-    NSIndexPath *cellPath = objc_getAssociatedObject(textField, INDEXKEY); // TODO: Use static variable for key
+    NSIndexPath *cellPath = objc_getAssociatedObject(textField, INDEXKEY);
     NSUInteger row = cellPath.row;
     [self.todoList setObject:textField.text atIndexedSubscript:row];
     [self.todoListView reloadData];
@@ -158,7 +155,7 @@
 
 
 - (void) storeTodoList {
-    [self.userDefaults setObject:self.todoList forKey:STOREKEY]; // TODO: Use static variable for key
+    [self.userDefaults setObject:self.todoList forKey:STOREKEY];
     [self.userDefaults synchronize];
 }
 
