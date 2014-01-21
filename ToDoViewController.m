@@ -14,8 +14,6 @@
 #define INDEXKEY @"INDEX_PATH"
 
 @interface ToDoViewController ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *editBtn;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addBtn;
 @property (strong, nonatomic) IBOutlet UITableView *todoListView;
 
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
