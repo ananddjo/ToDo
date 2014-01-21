@@ -36,7 +36,7 @@
             self.todoList = [[NSMutableArray alloc] init];
             NSLog(@"initWithCoder: list is empty");
         }
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationDidEnterBackgroundNotification object:nil];
         
     }
     
@@ -168,7 +168,6 @@
     NSLog(@"onAppTerminate");
     [self storeTodoListToDisk];
 }
-
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
